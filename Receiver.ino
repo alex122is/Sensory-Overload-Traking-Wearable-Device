@@ -1,6 +1,7 @@
-//THIS IS THE RECIEVER CODE
-
-
+/* 
+  This arduino receives a string of data from our transceiver arduino. We parse the string and send it out
+to out Processing IDE to be displayed in or app
+*/
 #include <SPI.h>
 #include <nRF24L01.h>
 #include <RF24.h>
