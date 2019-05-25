@@ -1,4 +1,6 @@
-// THIS IS THE TRANSIEVER CODEE
+/*
+This arduino is attached to our sensors and will send it out to other arduino in one string
+*/
 
 #include <SPI.h>
 #include <nRF24L01.h>
@@ -34,7 +36,6 @@ double Thermister(int RawADC) {  //Function to perform the fancy math of the Ste
 
 void loop() {
   delay(5);
-
   radio.stopListening();
   int tempVal=analogRead(A0);
   double temp = Thermister(tempVal);
@@ -45,8 +46,8 @@ void loop() {
   int NoiseVal = analogRead(A2);
   int dB = (NoiseVal +83.2073) / 11.003; //Convert ADC value to dB using Regression values
   String db2 = String(dB);
-  String tempp = temp2 + "," + lux2 + "," + db2;
-  Serial.println(tempp);
+  String tempp = temp2 + "," + lux2 + "," + db2;  
+  Serial.println(tempp);   //send it as one big string 
   char text[36];
   for(int i =0; i < 36;i++){
   char ch  = tempp.charAt(i);
@@ -54,14 +55,5 @@ void loop() {
   }
   radio.write(&text, sizeof(text));
   delay(1000);
-
-//  Serial.println(temp);  //temperature
-//  Serial.println(dB); //sound
-//  Serial.println(lux);  //Lightt
-
-
   radio.startListening();
- 
-
- 
 }
