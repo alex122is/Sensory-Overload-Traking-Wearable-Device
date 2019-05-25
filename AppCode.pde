@@ -1,5 +1,7 @@
 /*
 Poocessing code, Utilizes controlP5 library to add GUI elements and visual effects the app
+Taking in data from the arduino's we parse it in our processing sketch ato their corresponding Sensor Slots and 
+indicate whenever their is a Sensory overload.
 
 */
 
