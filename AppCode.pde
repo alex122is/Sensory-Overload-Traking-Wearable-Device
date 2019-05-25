@@ -1,3 +1,8 @@
+/*
+Poocessing code, Utilizes controlP5 library to add GUI elements and visual effects the app
+
+*/
+
 import controlP5.*;
 int uX,uY;
 ControlP5 Cp5;
